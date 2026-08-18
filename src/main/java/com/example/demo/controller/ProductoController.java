@@ -32,7 +32,7 @@ public class ProductoController {
 
     @PostMapping("/guardar")
     public String guardar(@Valid @ModelAttribute Producto producto,
-                          BindingResult result) {
+            BindingResult result) {
         if (result.hasErrors()) {
             return "productos/formulario";
         }
@@ -42,8 +42,13 @@ public class ProductoController {
 
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model) {
-        Producto producto = productoService.buscar(id)
-                .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
+
+        Producto producto = productoService.buscar(id);
+
+        if (producto == null) {
+            throw new IllegalArgumentException("Producto no encontrado");
+        }
+
         model.addAttribute("producto", producto);
         return "productos/formulario";
     }

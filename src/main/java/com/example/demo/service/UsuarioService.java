@@ -18,7 +18,7 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Ususario buscarPorId(Long id) {
+    public Usuario buscar(Long id) {
         return usuarioRepository.findById(id).orElse(null);
     }
 
@@ -30,4 +30,3 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
     }
 }
-

@@ -6,6 +6,11 @@ import com.example.demo.service.VentaService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.repository.ProductoRepository;
+import com.example.demo.repository.VentaRepository;
+
+
 @Configuration
 public class AppConfig {
 

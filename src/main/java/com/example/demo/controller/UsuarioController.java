@@ -38,8 +38,13 @@ public class UsuarioController {
 
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model) {
-        Usuario usuario = usuarioService.buscar(id)
-                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+
+        Usuario usuario = usuarioService.buscar(id);
+
+        if (usuario == null) {
+            throw new IllegalArgumentException("Usuario no encontrado");
+        }
+
         model.addAttribute("usuario", usuario);
         return "usuarios/formulario";
     }

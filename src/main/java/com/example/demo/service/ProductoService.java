@@ -4,7 +4,6 @@ import com.example.demo.model.Producto;
 import com.example.demo.repository.ProductoRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ProductoService {
 
@@ -15,12 +14,12 @@ public class ProductoService {
     }
 
     public List<Producto> listar() {
-        return productoRepository.findAll().orElse(null);
+        return productoRepository.findAll();
     }
 
-    public Usuario buscarPorId(Long id) {
-        return productoRepository.findById(id);
-    }
+    public Producto buscar(Long id) {
+    return productoRepository.findById(id).orElse(null);
+}
 
     public Producto guardar(Producto producto) {
         return productoRepository.save(producto);

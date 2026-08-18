@@ -7,6 +7,7 @@ import com.example.demo.repository.ProductoRepository;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.repository.VentaRepository;
 import org.springframework.transaction.annotation.Transactional;
+import java.math.BigDecimal;
 
 import java.time.LocalDateTime;
 import java.util.List;
