@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuario</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+<nav><h2>Ventas & Inventario</h2><div><a href="/">Inicio</a><a href="/usuarios">Usuarios</a><a href="/productos">Inventario</a><a href="/ventas">Ventas</a></div></nav>
+<main class="container narrow">
+    <h1 th:text="${usuario.id == null ? 'Nuevo usuario' : 'Editar usuario'}">Nuevo usuario</h1>
+    <form class="form" th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <label>Nombre<input type="text" th:field="*{nombre}"><span class="error" th:errors="*{nombre}"></span></label>
+        <label>Apellido<input type="text" th:field="*{apellido}"><span class="error" th:errors="*{apellido}"></span></label>
+        <label>Correo<input type="email" th:field="*{correo}"><span class="error" th:errors="*{correo}"></span></label>
+        <label>Teléfono<input type="text" th:field="*{telefono}"><span class="error" th:errors="*{telefono}"></span></label>
+        <label>Contraseña<input type="password" th:field="*{password}"><span class="error" th:errors="*{password}"></span></label>
+        <div><button class="button" type="submit">Guardar</button> <a class="button secondary" href="/usuarios">Cancelar</a></div>
+    </form>
+</main>
+</body>
+</html>

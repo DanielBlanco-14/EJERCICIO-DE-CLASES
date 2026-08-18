@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Inventario</title><link rel="stylesheet" href="/css/estilos.css"></head>
+<body>
+<nav><h2>Ventas & Inventario</h2><div><a href="/">Inicio</a><a href="/usuarios">Usuarios</a><a href="/productos">Inventario</a><a href="/ventas">Ventas</a></div></nav>
+<main class="container">
+    <div class="top"><div><h1>Inventario</h1><p class="subtitulo">Productos y existencias.</p></div><a class="button" href="/productos/nuevo">+ Nuevo producto</a></div>
+    <table>
+        <thead><tr><th>ID</th><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr></thead>
+        <tbody>
+        <tr th:each="p : ${productos}">
+            <td th:text="${p.id}"></td><td th:text="${p.nombre}"></td><td th:text="${p.categoria}"></td>
+            <td th:text="${'$ ' + p.precio}"></td><td th:text="${p.cantidad}"></td>
+            <td class="actions"><a class="small" th:href="@{/productos/editar/{id}(id=${p.id})}">Editar</a>
+                <form th:action="@{/productos/eliminar/{id}(id=${p.id})}" method="post"><button class="danger small" type="submit" onclick="return confirm('¿Eliminar producto?')">Eliminar</button></form>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(productos)}"><td colspan="6" class="empty">No hay productos registrados.</td></tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

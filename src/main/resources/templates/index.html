@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Ventas</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+<nav>
+    <h2>Ventas & Inventario</h2>
+    <div>
+        <a href="/">Inicio</a>
+        <a href="/usuarios">Usuarios</a>
+        <a href="/productos">Inventario</a>
+        <a href="/ventas">Ventas</a>
+    </div>
+</nav>
+
+<main class="container">
+    <h1>Panel principal</h1>
+    <p class="subtitulo">Administración de usuarios, productos y ventas.</p>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Usuarios</h3>
+            <strong th:text="${usuarios}">0</strong>
+            <a href="/usuarios">Administrar</a>
+        </div>
+        <div class="card">
+            <h3>Productos</h3>
+            <strong th:text="${productos}">0</strong>
+            <a href="/productos">Administrar</a>
+        </div>
+        <div class="card">
+            <h3>Ventas</h3>
+            <strong th:text="${ventas}">0</strong>
+            <a href="/ventas">Ver ventas</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>
