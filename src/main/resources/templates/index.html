@@ -1,42 +1,85 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sistema de Ventas</title>
-    <link rel="stylesheet" href="/css/estilos.css">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
 </head>
+
 <body>
-<nav>
-    <h2>Ventas & Inventario</h2>
-    <div>
+
+<header class="navbar">
+
+    <h1>Sistema de Ventas</h1>
+
+    <nav>
         <a href="/">Inicio</a>
         <a href="/usuarios">Usuarios</a>
         <a href="/productos">Inventario</a>
         <a href="/ventas">Ventas</a>
-    </div>
-</nav>
+    </nav>
+
+</header>
 
 <main class="container">
-    <h1>Panel principal</h1>
-    <p class="subtitulo">Administración de usuarios, productos y ventas.</p>
 
-    <div class="cards">
-        <div class="card">
+    <section class="hero">
+
+        <h2>Panel de administración</h2>
+
+        <p>
+            Administra usuarios, productos, inventario y ventas
+            desde un solo lugar.
+        </p>
+
+    </section>
+
+    <section class="dashboard">
+
+        <a href="/usuarios" class="dashboard-card">
+
+            
+
             <h3>Usuarios</h3>
-            <strong th:text="${usuarios}">0</strong>
-            <a href="/usuarios">Administrar</a>
-        </div>
-        <div class="card">
-            <h3>Productos</h3>
-            <strong th:text="${productos}">0</strong>
-            <a href="/productos">Administrar</a>
-        </div>
-        <div class="card">
+
+            <p>
+                Registrar y administrar usuarios.
+            </p>
+
+        </a>
+
+        <a href="/productos" class="dashboard-card">
+
+        
+
+            <h3>Inventario</h3>
+
+            <p>
+                Administrar productos y existencias.
+            </p>
+
+        </a>
+
+        <a href="/ventas" class="dashboard-card">
+
+
             <h3>Ventas</h3>
-            <strong th:text="${ventas}">0</strong>
-            <a href="/ventas">Ver ventas</a>
-        </div>
-    </div>
+
+            <p>
+                Registrar ventas y consultar historial.
+            </p>
+
+        </a>
+
+    </section>
+
 </main>
+
 </body>
 </html>
