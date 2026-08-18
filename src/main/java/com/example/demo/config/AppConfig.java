@@ -11,21 +11,21 @@ public class AppConfig {
 
     @Bean
     public UsuarioService usuarioService(
-            com.example.demo.repository.UsuarioRepository usuarioRepository) {
+            UsuarioRepository usuarioRepository) {
         return new UsuarioService(usuarioRepository);
     }
 
     @Bean
     public ProductoService productoService(
-            com.example.demo.repository.ProductoRepository productoRepository) {
+            ProductoRepository productoRepository) {
         return new ProductoService(productoRepository);
     }
 
     @Bean
     public VentaService ventaService(
-            com.example.demo.repository.VentaRepository ventaRepository,
-            com.example.demo.repository.ProductoRepository productoRepository,
-            com.example.demo.repository.UsuarioRepository usuarioRepository) {
+            VentaRepository ventaRepository,
+            ProductoRepository productoRepository,
+            UsuarioRepository usuarioRepository) {
         return new VentaService(ventaRepository, productoRepository, usuarioRepository);
     }
 }
