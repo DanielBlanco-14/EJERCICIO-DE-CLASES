@@ -31,11 +31,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/guardar")
-    public String guardar(@Valid @ModelAttribute Usuario usuario,
-                          BindingResult result) {
-        if (result.hasErrors()) {
-            return "usuarios/formulario";
-        }
+    public String guardar(@ModelAttribute Usuario usuario) {
         usuarioService.guardar(usuario);
         return "redirect:/usuarios";
     }
