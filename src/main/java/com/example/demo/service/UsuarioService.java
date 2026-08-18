@@ -18,8 +18,8 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Optional<Usuario> buscar(Long id) {
-        return usuarioRepository.findById(id);
+    public Ususario buscarPorId(Long id) {
+        return usuarioRepository.findById(id).orElse(null);
     }
 
     public Usuario guardar(Usuario usuario) {
