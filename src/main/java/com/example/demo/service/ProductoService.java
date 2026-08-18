@@ -15,10 +15,10 @@ public class ProductoService {
     }
 
     public List<Producto> listar() {
-        return productoRepository.findAll();
+        return productoRepository.findAll().orElse(null);
     }
 
-    public Optional<Producto> buscar(Long id) {
+    public Usuario buscarPorId(Long id) {
         return productoRepository.findById(id);
     }
 
